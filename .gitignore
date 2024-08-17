@@ -1,0 +1,8 @@
+// node_modules
+// variables de entorno
+// archivos de configuración
+
+
+node_modules
+.env 
+.npmrc
