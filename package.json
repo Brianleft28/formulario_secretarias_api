@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/app.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Brianleft28",
   "license": "ISC",
-  "description": "",
+  "description": "Api para el proyecto de datos respecto a las secretarias y sus dependencias",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
