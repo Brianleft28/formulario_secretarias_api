@@ -5,11 +5,11 @@ Rutas
 ---
 
 ```javascript
-router.get("/", index); // GET http://localhost:3000/secretarias
-router.get("/:id", show); // GET http://localhost:3000/secretarias/:id
-router.post("/", create); // POST http://localhost:3000/secretarias
-router.put("/:id", update); // PUT http://localhost:3000/secretarias/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/secretarias/:id
+router.get("/", index); // GET http://localhost:3000/api/v1/secretarias
+router.get("/:id", show); // GET http://localhost:3000/api/v1/secretarias/:id
+router.post("/", create); // POST http://localhost:3000/api/v1/secretarias
+router.put("/:id", update); // PUT http://localhost:3000/api/v1/secretarias/:id
+router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/secretarias/:id
 
 // cuerpo del POST - UPDATE
 {
@@ -24,11 +24,11 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/secretarias/:id
 ---
 
 ```javascript
-router.get("/", index); // GET http://localhost:3000/jefaturas
-router.get("/:id", show); // GET http://localhost:3000/jefaturas/:id
-router.post("/", create); // POST http://localhost:3000/jefaturas
-router.put("/:id", update); // PUT http://localhost:3000/jefaturas/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/jefaturas/:id
+router.get("/", index); // GET http://localhost:3000/api/v1/jefaturas
+router.get("/:id", show); // GET http://localhost:3000/api/v1/jefaturas/:id
+router.post("/", create); // POST http://localhost:3000/api/v1/jefaturas
+router.put("/:id", update); // PUT http://localhost:3000/api/v1/jefaturas/:id
+router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/jefaturas/:id
 
 // Cuerpo del POST - UPDATE
 
@@ -44,11 +44,11 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/jefaturas/:id
 ### Subsecretarias
 
 ```javascript
-router.get("/", index); // GET http://localhost:3000/subsecretarias
-router.get("/:id", show); // GET http://localhost:3000/subsecretarias/:id
-router.post("/", create); // POST http://localhost:3000/subsecretarias
-router.put("/:id", update); // PUT http://localhost:3000/subsecretarias/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/subsecretarias/:id
+router.get("/", index); // GET http://localhost:3000/api/v1/subsecretarias
+router.get("/:id", show); // GET http://localhost:3000/api/v1/subsecretarias/:id
+router.post("/", create); // POST http://localhost:3000/api/v1/subsecretarias
+router.put("/:id", update); // PUT http://localhost:3000/api/v1/subsecretarias/:id
+router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/subsecretarias/:id
 
 // Cuerpo del POST - UPDATE
 
@@ -65,11 +65,11 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/subsecretarias/:
 ---
 
 ```javascript
-router.get("/", index); // GET http://localhost:3000/direciones
-router.get("/:id", show); // GET http://localhost:3000/direciones/:id
-router.post("/", create); // POST http://localhost:3000/direciones
-router.put("/:id", update); // PUT http://localhost:3000/direciones/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/direciones/:id
+router.get("/", index); // GET http://localhost:3000/api/v1/direciones
+router.get("/:id", show); // GET http://localhost:3000/api/v1/direciones/:id
+router.post("/", create); // POST http://localhost:3000/api/v1/direciones
+router.put("/:id", update); // PUT http://localhost:3000/api/v1/direciones/:id
+router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/direciones/:id
 
 // Cuerpo del POST - UPDATE
 
@@ -84,11 +84,11 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/direciones/:id
 ### Coordinaciones
 
 ```javascript
-router.get("/", index); // GET http://localhost:3000/coordinaciones
-router.get("/:id", show); // GET http://localhost:3000/coordinaciones/:id
-router.post("/", create); // POST http://localhost:3000/coordinaciones
-router.put("/:id", update); // PUT http://localhost:3000/coordinaciones/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/coordinaciones/:id
+router.get("/", index); // GET http://localhost:3000/api/v1/coordinaciones
+router.get("/:id", show); // GET http://localhost:3000/api/v1/coordinaciones/:id
+router.post("/", create); // POST http://localhost:3000/api/v1/coordinaciones
+router.put("/:id", update); // PUT http://localhost:3000/api/v1/coordinaciones/:id
+router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/coordinaciones/:id
 
 // Cuerpo del POST - UPDATE
 
