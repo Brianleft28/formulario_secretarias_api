@@ -1,8 +1,8 @@
-import {Router } from 'express';
+import { Router } from 'express';
 import { readdir } from 'fs/promises';
 
 
-const router = Router();
+const router: Router = Router();
 const ROUTE_PATH = `${__dirname}/`;
 
 const cleanName = (name: string) => {
