@@ -12,7 +12,6 @@ class MySqlAdapter {
   static getInstance() {
     if (!MySqlAdapter.instance) {
       MySqlAdapter.instance = new MySqlAdapter(config);
-      
     }
     return MySqlAdapter.instance;
   }
@@ -25,18 +24,26 @@ class MySqlAdapter {
         password: config.db.password,
         database: config.db.database,
       });
-      console.log(`Connected to database ${config.db.database}, welcome user ${config.db.user}`);
+      console.log(
+        `Connected to database ${config.db.database}, welcome user ${config.db.user}`
+      );
     } catch (err) {
       console.error("Error connecting to database", err);
     }
   }
-
-  async query(sql: string, params: any[] = []) {
+  /* Query */
+  async executeQuery(sql: string, params: any[] = []) {
     if (!this.connection) {
       throw new Error("Database connection not established");
     }
-    return this.connection.execute(sql, params);
+
+    try {
+      const [rows] = await this.connection.query(sql, params);
+      return rows;
+    } catch (error) {
+      console.error("Error executing query", error);
+      throw error;
+    }
   }
 }
-
 export default MySqlAdapter;

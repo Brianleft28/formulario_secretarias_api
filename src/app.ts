@@ -8,7 +8,7 @@ const server = new Server();
 
 const app = express();
 
-server.useMiddlewares();
+server.config();
 server.app.use(cors());
 app.use(express.json());
 server.useRouter(router);
