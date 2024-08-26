@@ -8,7 +8,7 @@ export const index = async (req: Request, res: Response) => {
     const response = await memosRepository.getAll();
     return res.status(200).json(response);
   } catch (error) {
-    console.error("Error getting all secretarias", error);
+    console.error("Error getting all memos", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };

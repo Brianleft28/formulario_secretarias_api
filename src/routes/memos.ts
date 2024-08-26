@@ -8,6 +8,7 @@ import {
 } from "../controllers/memos/memosController";
 
 const router = Router();
+
 router.get("/", index); // GET http://localhost:3000/api/v1/direciones
 router.get("/:id", show); // GET http://localhost:3000/api/v1/direciones/:id
 router.post("/", create); // POST http://localhost:3000/api/v1/direciones
