@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import SubsecretariasRepository from "../models/secretarias/SubsecretariasRepository";
+import JefaturasRepository from "../../models/secretarias/JefaturasRepository";
 
-const subsecretariasRepository = new SubsecretariasRepository();
+const jefaturasRepository = new JefaturasRepository();
 
 export const index = async (req: Request, res: Response) => {
   try {
-    const response = await subsecretariasRepository.getAll();
+    const response = await jefaturasRepository.getAll();
     return res.status(200).json(response);
   } catch (error) {
     console.error("Error getting all secretarias", error);
@@ -16,7 +16,7 @@ export const index = async (req: Request, res: Response) => {
 export const show = async (req: Request, res: Response) => {
   try {
     const id = parseInt(req.params.id);
-    const response = await subsecretariasRepository.getById(id);
+    const response = await jefaturasRepository.getById(id);
     return res.status(200).json(response);
   } catch (error) {
     console.error("Error getting secretaria by id", error);
@@ -26,7 +26,7 @@ export const show = async (req: Request, res: Response) => {
 
 export const create = async (req: Request, res: Response) => {
   try {
-    const response = await subsecretariasRepository.create(req.body);
+    const response = await jefaturasRepository.create(req.body);
     return res.status(200).json(response);
   } catch (error) {
     console.error("Error creating secretaria", error);
@@ -37,7 +37,7 @@ export const create = async (req: Request, res: Response) => {
 export const update = async (req: Request, res: Response) => {
   try {
     const id = parseInt(req.params.id);
-    const response = await subsecretariasRepository.update(id, req.body);
+    const response = await jefaturasRepository.update(id, req.body);
     return res.status(200).json(response);
   } catch (error) {
     console.error("Error updating secretaria", error);
@@ -48,7 +48,7 @@ export const update = async (req: Request, res: Response) => {
 export const destroy = async (req: Request, res: Response) => {
   try {
     const id = parseInt(req.params.id);
-    const response = await subsecretariasRepository.delete(id);
+    const response = await jefaturasRepository.delete(id);
     return res.status(200).json(response);
   } catch (error) {
     console.error("Error deleting secretaria", error);

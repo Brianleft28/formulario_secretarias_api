@@ -2,8 +2,8 @@ import mysql from "mysql2/promise"; // Asegúrate de usar la versión de promesa
 import { config } from "../../config"; // Asegúrate de tener dotenv instalado
 
 class MySqlAdapter {
+  private static instance: MySqlAdapter;
   private connection: mysql.Connection | null = null;
-  static instance: InstanceType<typeof MySqlAdapter> | null = null;
 
   constructor(config: any) {
     this.#connect(config);
@@ -36,14 +36,11 @@ class MySqlAdapter {
     if (!this.connection) {
       throw new Error("Database connection not established");
     }
+    return this.connection.execute(sql, params);
+  }
 
-    try {
-      const [rows] = await this.connection.query(sql, params);
-      return rows;
-    } catch (error) {
-      console.error("Error executing query", error);
-      throw error;
-    }
+  async query(sql: string, params: any[] = []) {
+    return this.executeQuery(sql, params);
   }
 }
 export default MySqlAdapter;

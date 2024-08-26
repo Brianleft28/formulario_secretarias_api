@@ -5,7 +5,7 @@ import {
   index,
   show,
   update,
-} from "../controllers/coordinaciones";
+} from "../controllers/secretarias/coordinaciones";
 
 const router = Router();
 router.get("/", index); // GET http://localhost:3000/api/v1/coordinaciones

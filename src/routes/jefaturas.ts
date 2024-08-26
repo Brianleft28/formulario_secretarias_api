@@ -1,5 +1,11 @@
 import { Router } from "express";
-import { create, destroy, index, show, update } from "../controllers/jefaturas";
+import {
+  create,
+  destroy,
+  index,
+  show,
+  update,
+} from "../controllers/secretarias/jefaturas";
 
 const router = Router();
 

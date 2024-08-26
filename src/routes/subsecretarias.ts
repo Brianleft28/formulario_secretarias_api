@@ -5,7 +5,7 @@ import {
   index,
   show,
   update,
-} from "../controllers/subsecretarias";
+} from "../controllers/secretarias/subsecretarias";
 
 const router = Router();
 
