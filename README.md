@@ -19,6 +19,16 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/secretari
 }
 ```
 
+### Dependencias gral.
+
+---
+
+```javascript
+router.get("/", getAllDependencias); // GET http://localhost:3000/api/v1/dependencias
+```
+
+---
+
 ### jefaturas
 
 ---
@@ -31,7 +41,6 @@ router.put("/:id", update); // PUT http://localhost:3000/api/v1/jefaturas/:id
 router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/jefaturas/:id
 
 // Cuerpo del POST - UPDATE
-
 {
     "nombre": "Jefatura de prueba",
     "secretaria_id": 109
@@ -95,7 +104,7 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/coordinac
 {
     "nombre": "Coordinacion de prueba",
     "secretaria_id": 109
-    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
     "telefono": 339
+    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
 }
 ```

@@ -1,73 +1,63 @@
 import MySqlAdapter from "../adapters/database/MySqlAdapter";
-import mysql from "mysql2/promise";
+import mysql, { QueryResult } from "mysql2/promise";
 
-export default class BaseRepository {
-  private entity: any;
-  private db: MySqlAdapter;
+export default class BaseRepository<T> {
+  private entity: string;
+  protected db: MySqlAdapter;
 
-  constructor(entity: any) {
+  constructor(entity: string) {
     this.entity = entity;
     this.db = MySqlAdapter.getInstance();
   }
 
   // CRUD methods
-  async getAll() {
+  async getAll(): Promise<T[]> {
     try {
-      const tableName = mysql.escapeId(this.entity.table);
+      const tableName = mysql.escapeId(this.entity);
       const query = `SELECT * FROM ${tableName}`;
       const [rows] = await this.db.query(query);
-      return rows;
+      return rows as T[];
     } catch (error) {
       console.error("Error getting all entities", error);
-      return error;
+      throw error;
     }
   }
 
-  async getById(id: number) {
+  async getById(id: number): Promise<T[] | null> {
     try {
-      const tableName = mysql.escapeId(this.entity.table);
+      const tableName = mysql.escapeId(this.entity);
       const query = `SELECT * FROM ${tableName} WHERE id = ?`;
       const [rows] = await this.db.query(query, [id]);
-      return rows;
+      return rows as T[];
     } catch (error) {
       console.error("Error getting entity by id", error);
-      return error;
+      throw error;
     }
   }
 
-  async update(id: number, data: any) {
+  async update(id: number, data: Partial<T>): Promise<QueryResult> {
     try {
-      const tableName = mysql.escapeId(this.entity.table);
-      console.log("Escaped Table Name:", tableName);
-      // Salida esperada: Escaped Table Name: `secretarias`
-
+      const tableName = mysql.escapeId(this.entity);
       const setClause = Object.keys(data)
         .map((key) => `${mysql.escapeId(key)} = ?`)
         .join(", ");
       console.log("Set Clause:", setClause);
-      // Salida esperada: Set Clause: `name` = ?, `email` = ?
-
       const values = [...Object.values(data), id];
-      console.log("Values:", values);
-      // Salida esperada: Values: ['John Doe', 'john.doe@example.com', 1]
-
       const query = `UPDATE ${tableName} SET ${setClause} WHERE id = ?`;
       console.log("Query:", query);
-      // Salida esperada: Query: UPDATE `secretarias` SET `name` = ?, `email` = ? WHERE id = ?
-
       const [result] = await this.db.query(query, values);
       console.log("Result:", result);
       // Salida esperada: Result: { affectedRows: 1, ... }
-      return result;
+      return result as QueryResult;
     } catch (error) {
       console.error("Error updating entity", error);
-      return error;
+      throw error;
     }
   }
 
-  async create(data: any) {
+  async create(data: Partial<T>): Promise<QueryResult> {
     try {
-      const tableName = mysql.escapeId(this.entity.table);
+      const tableName = mysql.escapeId(this.entity);
       console.log("Escaped Table Name:", tableName);
       // Salida esperada: Escaped Table Name: `secretarias`
 
@@ -97,19 +87,19 @@ export default class BaseRepository {
       return result;
     } catch (error) {
       console.error("Error creating entity", error);
-      return error;
+      throw error;
     }
   }
 
-  async delete(id: number) {
+  async delete(id: number): Promise<QueryResult> {
     try {
-      const tableName = mysql.escapeId(this.entity.table);
+      const tableName = mysql.escapeId(this.entity);
       const query = `DELETE FROM ${tableName} WHERE id = ?`;
       const [rows] = await this.db.query(query, [id]);
       return rows;
     } catch (error) {
       console.error("Error deleting entity", error);
-      return error;
+      throw error;
     }
   }
 }
