@@ -6,8 +6,3 @@ export interface Memo {
   fecha: string;
   created_at: string;
 }
-
-export interface Estado {
-  id: number;
-  estado: string;
-}

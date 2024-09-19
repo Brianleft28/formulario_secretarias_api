@@ -1,33 +1,57 @@
 import { Request, Response } from "express";
-import CoordinacionesRepository from "../../models/secretarias/CoordinacionesRepository.";
-import DireccionesRepository from "../../models/secretarias/DireccionesRepository";
-import JefaturasRepository from "../../models/secretarias/JefaturasRepository";
-import SubsecretariasRepository from "../../models/secretarias/SubsecretariasRepository";
+import DependenciasRepository from "../../models/secretarias/DependenciasRepository";
 
-const coordinacionesRepository = new CoordinacionesRepository();
-const direccionesRepository = new DireccionesRepository();
-const jefaturasRepository = new JefaturasRepository();
-const subsecretariasRepository = new SubsecretariasRepository();
+const dependenciasRepository = new DependenciasRepository();
 
-export const getAllDependencias = async (req: Request, res: Response) => {
+export const index = async (req: Request, res: Response) => {
   try {
-    const [coordinaciones, direcciones, jefaturas, subsecretarias] =
-      await Promise.all([
-        coordinacionesRepository.getAll(),
-        direccionesRepository.getAll(),
-        jefaturasRepository.getAll(),
-        subsecretariasRepository.getAll(),
-      ]);
-
-    const dependencias = {
-      coordinaciones,
-      direcciones,
-      jefaturas,
-      subsecretarias,
-    };
-    return res.status(200).json({ dependencias });
+    const response = await dependenciasRepository.getAll();
+    return res.status(200).json(response);
   } catch (error) {
     console.error("Error getting all dependencias", error);
-    res.status(500).json({ message: "Error getting all dependencias" });
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const show = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+    const response = await dependenciasRepository.getById(id);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error("Error getting dependencia by id", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const create = async (req: Request, res: Response) => {
+  try {
+    const response = await dependenciasRepository.create(req.body);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error("Error creating dependencia", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const update = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+    const response = await dependenciasRepository.update(id, req.body);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error("Error updating dependencia", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const destroy = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+    const response = await dependenciasRepository.delete(id);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error("Error deleting dependencia", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };

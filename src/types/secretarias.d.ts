@@ -4,30 +4,19 @@ export interface Secretaria {
   correo: string;
   telefono: string;
 }
-export interface Coordinacion {
-  id: number;
-  nombre: string;
-  correo: string;
-  telefono: string;
-}
 
-export interface Direccion {
-  id: number;
-  nombre: string;
-  correo: string;
-  telefono: string;
-}
+type Tipo =
+  | "Dirección"
+  | "Departamento"
+  | "Subsecretaria"
+  | "Coordinación"
+  | "Jefatura";
 
-export interface Jefatura {
+export interface Dependencia {
   id: number;
+  secretaria_id: number;
+  tipo: Tipo;
   nombre: string;
   correo: string;
-  telefono: string;
-}
-
-export interface Subsecretaria {
-  id: number;
-  nombre: string;
-  correo: string;
-  telefono: string;
+  telefono: number;
 }

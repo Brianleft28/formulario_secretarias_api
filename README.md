@@ -19,92 +19,16 @@ router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/secretari
 }
 ```
 
-### Dependencias gral.
+### Dependencias
 
 ---
 
 ```javascript
-router.get("/", getAllDependencias); // GET http://localhost:3000/api/v1/dependencias
+router.get("/", index); // get http://localhost:3000/api/v1/dependencias
+router.get("/:id", show); // get http://localhost:3000/api/v1/dependencias/:id
+router.post("/", create); // post http://localhost:3000/api/v1/dependencias
+router.put("/:id", update); // put http://localhost:3000/api/v1/dependencias/:id
+router.delete("/:id", destroy); // delete http://localhost:3000/api/v1/dependencias/:id
 ```
 
 ---
-
-### jefaturas
-
----
-
-```javascript
-router.get("/", index); // GET http://localhost:3000/api/v1/jefaturas
-router.get("/:id", show); // GET http://localhost:3000/api/v1/jefaturas/:id
-router.post("/", create); // POST http://localhost:3000/api/v1/jefaturas
-router.put("/:id", update); // PUT http://localhost:3000/api/v1/jefaturas/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/jefaturas/:id
-
-// Cuerpo del POST - UPDATE
-{
-    "nombre": "Jefatura de prueba",
-    "secretaria_id": 109
-    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
-    "telefono": 339
-}
-
-```
-
-### Subsecretarias
-
-```javascript
-router.get("/", index); // GET http://localhost:3000/api/v1/subsecretarias
-router.get("/:id", show); // GET http://localhost:3000/api/v1/subsecretarias/:id
-router.post("/", create); // POST http://localhost:3000/api/v1/subsecretarias
-router.put("/:id", update); // PUT http://localhost:3000/api/v1/subsecretarias/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/subsecretarias/:id
-
-// Cuerpo del POST - UPDATE
-
-{
-    "nombre": "Subsecretaria de prueba",
-    "secretaria_id": 109
-    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
-    "telefono": 339
-}
-```
-
-### Direcciones
-
----
-
-```javascript
-router.get("/", index); // GET http://localhost:3000/api/v1/direciones
-router.get("/:id", show); // GET http://localhost:3000/api/v1/direciones/:id
-router.post("/", create); // POST http://localhost:3000/api/v1/direciones
-router.put("/:id", update); // PUT http://localhost:3000/api/v1/direciones/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/direciones/:id
-
-// Cuerpo del POST - UPDATE
-
-{
-    "nombre": "Dirección de prueba",
-    "secretaria_id": 109
-    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
-    "telefono": 339
-}
-```
-
-### Coordinaciones
-
-```javascript
-router.get("/", index); // GET http://localhost:3000/api/v1/coordinaciones
-router.get("/:id", show); // GET http://localhost:3000/api/v1/coordinaciones/:id
-router.post("/", create); // POST http://localhost:3000/api/v1/coordinaciones
-router.put("/:id", update); // PUT http://localhost:3000/api/v1/coordinaciones/:id
-router.delete("/:id", destroy); // DELETE http://localhost:3000/api/v1/coordinaciones/:id
-
-// Cuerpo del POST - UPDATE
-
-{
-    "nombre": "Coordinacion de prueba",
-    "secretaria_id": 109
-    "telefono": 339
-    "correo": "test.pruebadepostman@miituzaingo.gob.ar",
-}
-```
